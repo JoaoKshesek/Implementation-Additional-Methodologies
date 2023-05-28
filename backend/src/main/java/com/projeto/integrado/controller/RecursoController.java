@@ -40,6 +40,15 @@ public class RecursoController {
 		else 
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);		
 	}
+
+	@GetMapping("/{recursoNome}")
+	public ResponseEntity<Recurso> getByfindByRecursoNome(@PathVariable String recursoNome) {
+		Recurso recurso = recursoService.getByfindByRecursoNome(recursoNome);
+		if(recurso != null)
+			return new ResponseEntity<>(recurso, HttpStatus.OK); 
+		else 
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);		
+	}
 	
 	@PostMapping
 	public ResponseEntity<Recurso> saveRecurso(@RequestBody Recurso recurso) {

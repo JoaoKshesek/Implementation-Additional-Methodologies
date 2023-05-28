@@ -18,6 +18,10 @@ public class TarefaService {
 	public Tarefa getById(Integer id) {
 		return tarefaRepository.findById(id).orElse(null) ;
 	}
+
+	public Tarefa getByStatusTarefa(StatusTarefa statusTarefa) {
+		return tarefaRepository.findByStatusTarefa(statusTarefa).orElse(null) ;
+	}
 	
 	public Tarefa saveTarefa(Tarefa tarefa) {
 		return tarefaRepository.save(tarefa);
